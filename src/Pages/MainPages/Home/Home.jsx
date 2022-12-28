@@ -3,7 +3,7 @@ import "./Home.css";
 import Lottie from "lottie-react";
 import background from "../../../Resources/background_bubble.json";
 import { Link } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -26,12 +26,12 @@ const Home = () => {
         <div className="mt-6 text-indigo-900 dark:text-indigo-50 ">
           <h2 className="text-xl font-semibold mb-6 lg:animate-bounce flex items-center justify-center gap-2"> 
             <p>Before Adding Task</p> 
-            <FaPlus className="text-indigo-500 dark:text-indigo-400"/>
+            <FaArrowDown className="text-indigo-500 dark:text-indigo-400"/>
           </h2>
           <div className="flex justify-center items-center gap-6">
             <Link
               to="/login"
-              className="dark:text-indigo-200 border-2 border-indigo-900 dark:border-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1"
+              className="dark:text-indigo-200 border-2 border-indigo-900 dark:border-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1 dark:hover:border-transparent"
             >
               Login
             </Link>

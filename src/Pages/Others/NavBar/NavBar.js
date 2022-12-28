@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  const handleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.body.className = theme;
+  }, [theme]);
 
   const navItems = (
     <React.Fragment>
@@ -84,7 +99,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="shadow-md shadow-indigo-100 dark:shadow-none dark:bg-gray-900">
+    <div className="shadow-md shadow-indigo-100 dark:shadow-none dark:bg-gray-800">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
@@ -98,7 +113,18 @@ const NavBar = () => {
               Daily Tasks
             </span>
           </a>
-          <ul className="flex items-center hidden space-x-8 lg:flex">{navItems}</ul>
+          <ul className="flex items-center hidden gap-6 lg:flex">
+            <li>
+              <button onClick={handleTheme} className="text-2xl mt-2 mr-4">
+                {theme === "light" ? (
+                  <BsFillSunFill className="text-yellow-500" />
+                ) : (
+                  <BsMoonFill className="text-yellow-200" />
+                )}
+              </button>
+            </li>
+            {navItems}
+          </ul>
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -145,7 +171,10 @@ const NavBar = () => {
                         className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-indigo-200 focus:bg-indigo-200 focus:outline-none focus:shadow-outline"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <svg className="w-5 text-gray-600 dark:text-gray-500" viewBox="0 0 24 24">
+                        <svg
+                          className="w-5 text-gray-600 dark:text-gray-500"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             fill="currentColor"
                             d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
