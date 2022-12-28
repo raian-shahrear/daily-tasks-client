@@ -1,10 +1,51 @@
-import React from 'react';
+import React from "react";
+import "./Home.css";
+import Lottie from "lottie-react";
+import background from "../../../Resources/background_bubble.json";
+import { Link } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 const Home = () => {
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-      <h1>Hello from home</h1>
-    </div>
+    <section className="h-screen px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 relative">
+      <div className="lottie-background w-[650px] md:w-[700px]">
+        <Lottie animationData={background} loop={true} />;
+      </div>
+
+      <div className="bg-light-home dark:bg-dark-home py-20 px-16 md:px-32 grid grid-cols-1 lg:grid-cols-2 items-center content-evenly lg:justify-items-end">
+        <div className="text-center lg:text-start">
+          <h1 className="text-2xl md:text-4xl font-bold text-indigo-900 dark:text-indigo-50">
+            Hake Your Time! <br /> Follow{" "}
+            <span className="text-indigo-500 dark:text-indigo-400">Daily Tasks</span>
+          </h1>
+          <p className="text-indigo-900 dark:text-indigo-50 font-medium md:text-lg mt-3 lg:mt-6">
+            Are you worried about your tasks, don't want to miss? This platform
+            offers to manage your task from anywhere at anytime.
+          </p>
+        </div>
+        <div className="mt-6 text-indigo-900 dark:text-indigo-50 ">
+          <h2 className="text-xl font-semibold mb-6 lg:animate-bounce flex items-center justify-center gap-2"> 
+            <p>Before Adding Task</p> 
+            <FaPlus className="text-indigo-500 dark:text-indigo-400"/>
+          </h2>
+          <div className="flex justify-center items-center gap-6">
+            <Link
+              to="/login"
+              className="dark:text-indigo-200 border-2 border-indigo-900 dark:border-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1"
+            >
+              Login
+            </Link>
+            <p className="text-lg font-semibold">or</p>
+            <Link
+              to="/signup"
+              className="text-indigo-500 border-2 border-indigo-500 px-6 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

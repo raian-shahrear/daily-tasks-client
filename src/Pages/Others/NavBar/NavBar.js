@@ -59,11 +59,32 @@ const NavBar = () => {
           Completed Tasks
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          onClick={() => setIsMenuOpen(false)}
+          to="/login"
+          className={({ isActive }) =>
+            isActive
+              ? "text-indigo-50 bg-indigo-500 px-8 py-2 font-bold tracking-wide"
+              : "text-indigo-900 bg-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500"
+          }
+        >
+          Login
+        </NavLink>
+      </li>
+      <li>
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="text-gray-900 bg-gray-200 px-5 py-2 font-bold tracking-wide transition-all duration-200 hover:text-gray-100 hover:bg-gray-500"
+        >
+          Sign Out
+        </button>
+      </li>
     </React.Fragment>
   );
 
   return (
-    <div className="shadow-md shadow-indigo-100 dark:bg-gray-900">
+    <div className="shadow-md shadow-indigo-100 dark:shadow-none dark:bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
