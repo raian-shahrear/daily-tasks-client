@@ -29,7 +29,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-200 hover:text-indigo-500"
+              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
           }
         >
           Home
@@ -42,7 +42,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-200 hover:text-indigo-500"
+              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
           }
         >
           Add Task
@@ -55,7 +55,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-200 hover:text-indigo-500"
+              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
           }
         >
           My Tasks
@@ -68,7 +68,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-200 hover:text-indigo-500"
+              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
           }
         >
           Completed Tasks
@@ -81,7 +81,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-indigo-50 bg-indigo-500 px-8 py-2 font-bold tracking-wide"
-              : "text-indigo-900 bg-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500"
+              : "text-indigo-900 bg-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-300 hover:text-indigo-50 hover:bg-indigo-500"
           }
         >
           Login
@@ -90,7 +90,7 @@ const NavBar = () => {
       <li>
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="text-gray-900 bg-gray-200 px-5 py-2 font-bold tracking-wide transition-all duration-200 hover:text-gray-100 hover:bg-gray-500"
+          className="text-gray-900 bg-gray-200 px-5 py-2 font-bold tracking-wide transition-all duration-300 hover:text-gray-100 hover:bg-gray-500"
         >
           Sign Out
         </button>

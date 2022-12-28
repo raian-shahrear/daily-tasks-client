@@ -31,14 +31,14 @@ const Home = () => {
           <div className="flex justify-center items-center gap-6">
             <Link
               to="/login"
-              className="dark:text-indigo-200 border-2 border-indigo-900 dark:border-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1 dark:hover:border-transparent"
+              className="dark:text-indigo-200 border-2 border-indigo-900 dark:border-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-300 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1 dark:hover:border-transparent"
             >
               Login
             </Link>
             <p className="text-lg font-semibold">or</p>
             <Link
               to="/signup"
-              className="text-indigo-500 border-2 border-indigo-500 px-6 py-2 font-bold tracking-wide transition-all duration-200 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1"
+              className="text-indigo-500 border-2 border-indigo-500 px-6 py-2 font-bold tracking-wide transition-all duration-300 hover:text-indigo-50 hover:bg-indigo-500 hover:border-transparent hover:-translate-y-1"
             >
               Sign Up
             </Link>
