@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyApcrgpE8xHUDm2hWZydmV6NRg_Du1FX2k",
-  authDomain: "daily-tasks-416ff.firebaseapp.com",
-  projectId: "daily-tasks-416ff",
-  storageBucket: "daily-tasks-416ff.appspot.com",
-  messagingSenderId: "1096074284587",
-  appId: "1:1096074284587:web:52ac90bb0732c69847a46e"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);

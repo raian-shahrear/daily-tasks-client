@@ -1,12 +1,4 @@
-.lottie-background{
-  height: 100%;
-  margin: 0 auto;
-  z-index: 10;
-  transform: translate(-50%, -50%);
-  opacity: 0.6;
-}
-
-.bg-dark-home{
+.bg-dark-addTask{
   position: relative;
   top: 50%;
   left: 50%;
@@ -14,7 +6,7 @@
   z-index: 20;
   background: hsla(0, 0%, 100%, 0.1);
 }
-.bg-light-home{
+.bg-light-addTask{
   position: relative;
   top: 50%;
   left: 50%;

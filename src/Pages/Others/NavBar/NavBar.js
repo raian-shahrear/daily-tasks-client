@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
+import { UserContext } from "../../../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
+  const { user, signOutUser } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
+  // Theme set
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const handleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -14,87 +18,115 @@ const NavBar = () => {
       setTheme("light");
     }
   };
-
   useEffect(() => {
     localStorage.setItem("theme", theme);
     document.body.className = theme;
   }, [theme]);
 
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("Successfully Sign Out!", { duration: 2000 });
+      })
+      .catch((err) => console.error(err));
+  };
+
   const navItems = (
     <React.Fragment>
-      <li>
-        <NavLink
-          onClick={() => setIsMenuOpen(false)}
-          to="/home"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          onClick={() => setIsMenuOpen(false)}
-          to="/add-task"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
-          }
-        >
-          Add Task
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          onClick={() => setIsMenuOpen(false)}
-          to="/my-tasks"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
-          }
-        >
-          My Tasks
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          onClick={() => setIsMenuOpen(false)}
-          to="/completed-tasks"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-500 font-bold tracking-wide"
-              : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
-          }
-        >
-          Completed Tasks
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          onClick={() => setIsMenuOpen(false)}
-          to="/login"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-50 bg-indigo-500 px-8 py-2 font-bold tracking-wide"
-              : "text-indigo-900 bg-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-300 hover:text-indigo-50 hover:bg-indigo-500"
-          }
-        >
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <button
-          onClick={() => setIsMenuOpen(false)}
-          className="text-gray-900 bg-gray-200 px-5 py-2 font-bold tracking-wide transition-all duration-300 hover:text-gray-100 hover:bg-gray-500"
-        >
-          Sign Out
-        </button>
-      </li>
+      {!user?.uid ? (
+        <>
+          <li>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              to="/home"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-500 font-bold tracking-wide"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              to="/login"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-50 bg-indigo-500 px-8 py-2 font-bold tracking-wide"
+                  : "text-indigo-900 bg-indigo-200 px-8 py-2 font-bold tracking-wide transition-all duration-300 hover:text-indigo-50 hover:bg-indigo-500"
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <NavLink
+            onClick={() => setIsMenuOpen(false)}
+            to="/home"
+            className={({ isActive }) =>
+              isActive
+                ? "text-indigo-500 font-bold tracking-wide"
+                : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+            }
+          >
+            Home
+          </NavLink>
+          <li>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              to="/add-task"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-500 font-bold tracking-wide"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+              }
+            >
+              Add Task
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              to="/my-tasks"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-500 font-bold tracking-wide"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+              }
+            >
+              My Tasks
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              to="/completed-tasks"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-500 font-bold tracking-wide"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+              }
+            >
+              Completed Tasks
+            </NavLink>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                handleSignOut();
+              }}
+              className="text-gray-900 bg-gray-200 px-5 py-2 font-bold tracking-wide transition-all duration-300 hover:text-gray-100 hover:bg-gray-500"
+            >
+              Sign Out
+            </button>
+          </li>
+        </>
+      )}
     </React.Fragment>
   );
 
@@ -113,7 +145,7 @@ const NavBar = () => {
               Daily Tasks
             </span>
           </a>
-          <ul className="flex items-center hidden gap-6 lg:flex">
+          <ul className="items-center hidden gap-6 lg:flex">
             <li>
               <button onClick={handleTheme} className="text-2xl mt-2 mr-4">
                 {theme === "light" ? (
@@ -124,6 +156,16 @@ const NavBar = () => {
               </button>
             </li>
             {navItems}
+            {user?.uid && (
+              <li>
+                <img
+                  src={user?.photoURL}
+                  alt="profile"
+                  title={user?.displayName}
+                  className="w-16 rounded-full cursor-pointer border-2 border-indigo-500"
+                />
+              </li>
+            )}
           </ul>
           <div className="lg:hidden">
             <button
@@ -183,8 +225,20 @@ const NavBar = () => {
                       </button>
                     </div>
                   </div>
-                  <nav>
+                  <nav className="flex justify-between">
                     <ul className="space-y-4">{navItems}</ul>
+                    <div>
+                      <button
+                        onClick={handleTheme}
+                        className="text-2xl mt-2 mr-4"
+                      >
+                        {theme === "light" ? (
+                          <BsFillSunFill className="text-yellow-500" />
+                        ) : (
+                          <BsMoonFill className="text-yellow-200" />
+                        )}
+                      </button>
+                    </div>
                   </nav>
                 </div>
               </div>

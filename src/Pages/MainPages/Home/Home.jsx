@@ -5,10 +5,11 @@ import background from "../../../Resources/background_bubble.json";
 import { Link } from "react-router-dom";
 import { FaArrowDown } from "react-icons/fa";
 
+
 const Home = () => {
   return (
-    <section className="h-screen px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 relative">
-      <div className="lottie-background w-[650px] md:w-[700px]">
+    <section className="h-[680px] px-4 py-44 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 relative">
+      <div className="lottie-background absolute left-1/2 top-[355px] md:top-[330px] w-[650px] md:w-[700px]">
         <Lottie animationData={background} loop={true} />;
       </div>
 
