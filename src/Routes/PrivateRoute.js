@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
 
   if(authLoading){
     return (
-      <div className='h-[680px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 flex justify-center items-center'>
+      <div className='h-[700px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 flex justify-center items-center'>
         <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-indigo-500"></div>
       </div>
     )
