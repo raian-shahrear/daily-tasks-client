@@ -132,7 +132,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <section className="h-screen flex justify-center items-center">
       <div className="w-full max-w-md p-8 space-y-3 bg-gray-200 dark:bg-gray-800 text-indigo-900 dark:text-indigo-500">
         <h1 className="text-2xl font-bold text-center">Sign Up</h1>
         <div>
@@ -263,7 +263,7 @@ const SignUp = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -12,9 +12,9 @@ const MyTasks = () => {
   const {
     data: tasks,
     isLoading,
-    refetch,
+    refetch
   } = useQuery({
-    queryKey: [],
+    queryKey: ["tasks", user?.email],
     queryFn: async () => {
       const res = await fetch(
         `${process.env.REACT_APP_HOST_LINK}/tasks?email=${user?.email}`
@@ -41,7 +41,7 @@ const MyTasks = () => {
         .then((res) => res.json())
         .then((updateData) => {
           if (updateData.acknowledged) {
-            toast.success("Task has been Updated!", { duration: 2000 });
+            toast.success("Task has been Updated to complete!", { duration: 2000 });
             refetch();
             navigate("/completed-tasks");
           }
@@ -85,7 +85,7 @@ const MyTasks = () => {
       } px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}
     >
       <h1 className="mb-12 w-40 mx-auto text-2xl font-bold border-b border-gray-200 dark:border-indigo-800 pb-2 text-center text-indigo-900 dark:text-indigo-400">
-        My Task
+        My Tasks
       </h1>
       {tasks?.length === 0 ? (
         <p className="mt-48 text-center text-4xl font-semibold text-gray-300 dark:text-gray-700">Task Is Not Added Yet</p>
@@ -123,7 +123,7 @@ const MyTasks = () => {
                     className="py-2 px-3 font-medium text-gray-900 dark:text-gray-200 whitespace-nowrap"
                   >
                     <div className="avatar">
-                      <div className="w-12 rounded-full">
+                      <div className="w-12 p-1 rounded bg-gray-400 dark:bg-gray-500">
                         <img src={task?.taskImage} alt="task" />
                       </div>
                     </div>

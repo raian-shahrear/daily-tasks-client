@@ -93,7 +93,6 @@ const AddTask = () => {
               {
                 isLoading && <div className="absolute w-6 h-6 border-2 bottom-2 left-8 border-dashed rounded-full animate-spin border-indigo-50"></div>
               }
-              
             </div>
           </form>
         </div>
