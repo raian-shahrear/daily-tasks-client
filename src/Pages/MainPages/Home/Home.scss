@@ -1,0 +1,26 @@
+$bg-dark: hsla(0, 0%, 100%, 0.1);
+$bg-light: hsla(0, 0%, 0%, 0.2);
+
+.lottie-background{
+  height: 100%;
+  margin: 0 auto;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+
+.bg-content-basic{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+.bg-dark-home{
+  @extend .bg-content-basic;
+  background: $bg-dark;
+}
+.bg-light-home{
+  @extend .bg-content-basic;
+  background: $bg-light;
+}

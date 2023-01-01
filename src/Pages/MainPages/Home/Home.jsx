@@ -18,7 +18,7 @@ const Home = () => {
       <div className="bg-light-home dark:bg-dark-home py-20 px-16 md:px-32 grid grid-cols-1 lg:grid-cols-2 items-center content-evenly lg:justify-items-end">
         <div className="text-center lg:text-start">
           <h1 className="text-2xl md:text-4xl font-bold text-indigo-900 dark:text-indigo-50">
-            Hake Your Time! <br /> Follow{" "}
+            Hack Your Time! <br /> Follow{" "}
             <span className="text-indigo-500 dark:text-indigo-400">
               Daily Tasks
             </span>

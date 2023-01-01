@@ -81,6 +81,8 @@ const AddTask = () => {
               type="file"
               name="photo"
               required
+              accept="image/*"
+              title="Choose any image file"
               className="mt-6 bg-gray-400 dark:bg-gray-700 w-52 md:w-full text-gray-900 dark:text-gray-100 py-10 px-2 md:px-6 lg:px-28 xl:px-36"
             />
 

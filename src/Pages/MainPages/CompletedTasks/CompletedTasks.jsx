@@ -9,9 +9,7 @@ import TaskDescriptions from "./TaskDescriptions";
 const CompletedTasks = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const [allDescriptions, setAllDescription] = useState([]);
-  const time = new Date();
 
   // get tasks by email
   const {
@@ -77,44 +75,6 @@ const CompletedTasks = () => {
     }
   };
 
-  //----------------------------------------------
-  // post/create description
-  const handleDescription = (event, myTask) => {
-    setLoading(true);
-    event.preventDefault();
-    const form = event.target;
-    const description = form.description.value;
-
-    const newDescription = {
-      userName: user?.displayName,
-      userEmail: user?.email,
-      taskName: myTask?.task,
-      taskId: myTask?._id,
-      description,
-      postingTime: time.getTime(),
-    };
-    fetch(`${process.env.REACT_APP_HOST_LINK}/descriptions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newDescription),
-    })
-      .then((res) => res.json())
-      .then((descriptionData) => {
-        if (descriptionData.acknowledged) {
-          form.reset();
-          toast.success("Description added successfully!", { duration: 2000 });
-          setLoading(false);
-          navigate("/home");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  };
-
   if (isLoading) {
     return (
       <div className="h-[700px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 flex justify-center items-center">
@@ -126,7 +86,9 @@ const CompletedTasks = () => {
   return (
     <section
       className={`${
-        tasks?.length > 1 || allDescriptions?.length > 1 ? "h-full" : "h-[680px]"
+        tasks?.length > 1 || allDescriptions?.length > 1
+          ? "h-full"
+          : "h-[680px]"
       } px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}
     >
       <h1 className="mb-12 w-52 mx-auto text-2xl font-bold border-b border-gray-200 dark:border-indigo-800 pb-2 text-center text-indigo-900 dark:text-indigo-400">
@@ -174,30 +136,10 @@ const CompletedTasks = () => {
                     </button>
                   </div>
                 </div>
-                <article className="text-gray-900 dark:text-gray-200">
-                  <p className="font-medium mt-5 mb-2 lg:mt-3">
-                    Task Description:
-                  </p>
-                  <TaskDescriptions task={task} refetch={refetch} setAllDescription={setAllDescription} />
-                </article>
-                <form onSubmit={(event) => handleDescription(event, task)} >
-                  <textarea
-                    name="description"
-                    placeholder="say something..."
-                    required
-                    className="w-full mt-6 px-4 py-3 border border-transparent bg-indigo-50 text-gray-800 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
-                  />
-                  <div className="w-52 mx-auto relative">
-                    <input
-                      type="submit"
-                      value={!loading ? "Add Description" : ""}
-                      className="bg-indigo-900 dark:bg-indigo-500 text-gray-200 dark:text-gray-900 px-6 py-2 font-bold tracking-wide transition-all duration-300 hover:bg-indigo-800 dark:hover:bg-indigo-400 cursor-pointer mt-4 w-full"
-                    />
-                    {loading && (
-                      <div className="absolute w-6 h-6 border-2 bottom-3.5 left-24 border-dashed rounded-full animate-spin border-indigo-50"></div>
-                    )}
-                  </div>
-                </form>
+                <TaskDescriptions
+                  task={task}
+                  setAllDescription={setAllDescription}
+                />
               </div>
             </div>
           </div>

@@ -42,7 +42,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-indigo-500 font-bold tracking-wide"
-                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500 dark:hover:text-indigo-500"
               }
             >
               Home
@@ -70,7 +70,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-indigo-500 font-bold tracking-wide"
-                : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+                : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500 dark:hover:text-indigo-500"
             }
           >
             Home
@@ -82,7 +82,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-indigo-500 font-bold tracking-wide"
-                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500 dark:hover:text-indigo-500"
               }
             >
               Add Task
@@ -95,7 +95,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-indigo-500 font-bold tracking-wide"
-                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500 dark:hover:text-indigo-500"
               }
             >
               My Tasks
@@ -108,7 +108,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-indigo-500 font-bold tracking-wide"
-                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500"
+                  : "text-indigo-900 dark:text-indigo-200 font-bold tracking-wide transition-all duration-300 hover:text-indigo-500 dark:hover:text-indigo-500"
               }
             >
               Completed Tasks
@@ -132,7 +132,11 @@ const NavBar = () => {
 
   return (
     <div className="shadow-md shadow-indigo-100 dark:shadow-none dark:bg-gray-800">
-      <div className={`h-[100px] px-4 ${user?.uid ? "py-[19px]" : "p-8"} mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}>
+      <div
+        className={`h-[100px] px-4 ${
+          user?.uid ? "py-[19px]" : "p-8"
+        } mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}
+      >
         <div className="relative flex items-center justify-between">
           <a
             href="/"
@@ -141,7 +145,7 @@ const NavBar = () => {
             className="inline-flex items-center"
           >
             <FaPaperPlane className="text-2xl text-indigo-500 dark:text-indigo-300" />
-            <span className="ml-2 text-xl font-bold tracking-wide text-indigo-900 dark:text-indigo-500 uppercase">
+            <span className="logo ml-2 text-2xl font-bold tracking-wide text-indigo-900 dark:text-indigo-500 uppercase">
               Daily Tasks
             </span>
           </a>
@@ -174,7 +178,10 @@ const NavBar = () => {
               className="p-2 -mr-1 transition duration-200 rounded hover:bg-indigo-200 focus:bg-indigo-200 focus:outline-none focus:shadow-outline"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-gray-600 dark:text-gray-500" viewBox="0 0 24 24">
+              <svg
+                className="w-5 text-gray-600 dark:text-gray-500"
+                viewBox="0 0 24 24"
+              >
                 <path
                   fill="currentColor"
                   d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -191,7 +198,7 @@ const NavBar = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm shadow-indigo-100 dark:bg-gray-900">
+                <div className="p-5 bg-white border rounded shadow-sm shadow-indigo-100 dark:bg-gray-900 relative z-50">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <a
@@ -200,8 +207,8 @@ const NavBar = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <FaPaperPlane className="text-2xl text-indigo-500" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-indigo-900 uppercase">
+                        <FaPaperPlane className="text-2xl text-indigo-500 dark:text-indigo-300" />
+                        <span className="logo ml-2 text-2xl font-bold tracking-wide text-indigo-900 dark:text-indigo-500 uppercase">
                           Daily Tasks
                         </span>
                       </a>
