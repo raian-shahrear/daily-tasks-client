@@ -116,6 +116,7 @@ const Login = () => {
               type="email"
               name="email"
               id="email"
+              defaultValue="raka@gmail.com"
               placeholder="Valid Email"
               required
               className="w-full px-4 py-3 border border-transparent bg-indigo-50 text-gray-800 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
@@ -134,6 +135,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 placeholder="******"
+                defaultValue="123ABC$"
                 required
                 className="w-full px-4 py-3 border border-transparent bg-indigo-50 text-gray-800 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
               />

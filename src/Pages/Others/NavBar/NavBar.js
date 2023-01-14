@@ -23,6 +23,7 @@ const NavBar = () => {
     document.body.className = theme;
   }, [theme]);
 
+  // sign out user
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
@@ -31,6 +32,7 @@ const NavBar = () => {
       .catch((err) => console.error(err));
   };
 
+  // Navbar Items
   const navItems = (
     <React.Fragment>
       {!user?.uid ? (
